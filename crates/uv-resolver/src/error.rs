@@ -333,14 +333,11 @@ impl NoSolutionError {
         }
 
         /// Remove local versions sentinels (`+[max]`) from the version ranges.
-        #[allow(clippy::needless_pass_by_value)]
         fn strip_sentinels(versions: Ranges<Version>) -> Ranges<Version> {
-            let mut range = Ranges::empty();
-            for (lower, upper) in versions.iter() {
-                let (lower, upper) = strip_sentinel(lower.clone(), upper.clone());
-                range = range.union(&Range::from_range_bounds((lower, upper)));
-            }
-            range
+            versions
+                .into_iter()
+                .map(|(lower, upper)| strip_sentinel(lower.clone(), upper.clone()))
+                .collect()
         }
 
         /// Returns `true` if the range appears to be, e.g., `>1.0.0, <1.0.0+[max]`.
