@@ -13,6 +13,7 @@ fn roundtrip() {
         source: RequirementSource::Registry {
             specifier: ">1,<2".parse().unwrap(),
             index: None,
+            conflict: None,
         },
         origin: None,
     };

@@ -207,7 +207,8 @@ async fn albatross_root_workspace() {
             "sources": {
               "bird-feeder": [
                 {
-                  "workspace": true
+                  "workspace": true,
+                  "extra": null
                 }
               ]
             },
@@ -228,7 +229,8 @@ async fn albatross_root_workspace() {
                   "sources": {
                     "bird-feeder": [
                       {
-                        "workspace": true
+                        "workspace": true,
+                        "extra": null
                       }
                     ]
                   },
